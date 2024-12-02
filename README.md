@@ -45,7 +45,7 @@ sudo docker run --rm --device=/dev/video0:/dev/video0 yolo-app
 1. cd grafana_influx_stats
 2. sudo docker compose up --build
 
-## NodeMCU v3 setup
+## Temperature setup
 
 ### I2C LCD wireing
 VCC -> VV GND -> G SCL -> D1 SDA -> D2
