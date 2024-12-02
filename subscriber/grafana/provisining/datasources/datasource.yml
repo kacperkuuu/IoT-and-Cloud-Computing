@@ -1,0 +1,14 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    jsonData:
+      version: Flux
+      organization: test
+      defaultBucket: mqtt_data
+      tlsSkipVerify: true
+    secureJsonData:
+      token: vx9-n5W2ZxrCsOdsyL3R-hnKqBgLcaBgM0dNlyrqUZR5SN4_z3wklaqi3H4GsxyUMoaVvR-r-ZKSELXc2nZ0PA==
