@@ -12,7 +12,7 @@ const char *password = "00000009";   // Replace with your WiFi password
 // MQTT Broker settings
 const int mqtt_port = 8883;  // MQTT port (TLS)
 const char *mqtt_broker = "i78343e1.ala.eu-central-1.emqxsl.com";  // EMQX broker endpoint
-const char *mqtt_topic = "emqx/esp8266";
+const char *mqtt_topic_temperature  = "emqx/esp8266";
 const char* mqtt_topic_speech = "speech-to-text";
 const char* mqtt_topic_objects = "object-detection";     // MQTT topic
 const char *mqtt_username = "student";  // MQTT username for authentication
