@@ -5,7 +5,7 @@ This application utilizes the OpenAI Whisper model to capture 2-second audio seg
 
 ### Linux required for easier installation, making docker can read microphone from windows is quite complicated
 
-## installation on linux Debian12
+## Installation on linux Debian12
 
 ### Requirements:
 - Python 3.11.8 !! important
@@ -27,14 +27,14 @@ This application utilizes the OpenAI Whisper model to capture 2-second audio seg
 2. NVIDIA Container Toolkit for docker so it can read GPU
 3. SSL cert for MQTT connection in /python_scripts/MQTTcert.crt
 
-### instructions whisper_RealTime
+### Instructions whisper_RealTime
 1. cd whisper_realTime
 2. sudo docker build -t whisper_realTime .
 
-### whisper_RealTime run:
+### Whisper_RealTime run:
 sudo docker run --gpus all --device /dev/snd:/dev/snd --rm -it whisper-audio-app
 
-### instructions YOLOv8
+### Instructions YOLOv8
 1. cd YOLOv8
 2. sudo docker build -t yolo-app .
 
