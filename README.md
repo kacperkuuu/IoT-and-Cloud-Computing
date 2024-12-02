@@ -1,7 +1,7 @@
 # IoT-and-Cloud-Computing
 
 ### Description
-It uses Open AI Whisper model and by recording 2 second chunks from default audio input device, prints recognized speech. Works with both CPU and CUDA and has special function for choosing it so it wont crash. Require linux to dockerize it. I know there are tokens and ssl certs in code but its just for testing okay..
+This application utilizes the OpenAI Whisper model to capture 2-second audio segments from the default input device and display the transcribed speech. It is compatible with both CPU and CUDA, with a dedicated function for selecting the appropriate mode to prevent crashes. The application requires Linux for dockerization. Although there are tokens and SSL certificates in the code, they are included solely for testing purposes, so no worries.
 
 ### Linux required for easier installation, making docker can read microphone from windows is quite complicated
 
