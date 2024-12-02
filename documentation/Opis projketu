@@ -1,0 +1,32 @@
+# Tytuł projektu:
+## System IoT do monitorowania temperatury oraz obsługi tekstu mówionego i obrazu z wykorzystaniem MQTT
+
+
+## Autorzy projketu:
+- Daria Wasilewska
+- Kacper Kureń
+
+
+## Cel projektu:
+### Celem projektu było stworzenie kompleksowego systemu IoT, który łączy monitorowanie temperatury z zaawansowanymi funkcjami przetwarzania mowy oraz obrazu. System miał spełniać wymagania:
+1. Mierzenie temperatury za pomocą ESP8266 i czujnika DS18B20.
+2. Wysyłanie i subskrybowanie danych przez protokół MQTT z autoryzacją i szyfrowaniem.
+3. Przechowywanie danych w bazie InfluxDB oraz wizualizacja wyników w Grafanie.
+4. Realizacja przetwarzania tekstu mówionego na pisany (speech-to-text) oraz wykrywania obiektów na obrazie (video-to-text), z obsługą danych na ESP8266 i wyświetlaniem ich na ekranie LCD.
+
+
+## Technologie użyte w projekcie:
+- ESP8266: Mikrokontroler do odczytu temperatury i wyświetlania tekstu na LCD.
+- MQTT: Protokół komunikacji między komponentami systemu.
+- Python: Język używany w aplikacjach subscriber, speech-to-text, i video-to-text.
+- Docker: Konteneryzacja aplikacji i usług (subscriber, InfluxDB, Grafana).
+- InfluxDB: Baza danych czasowo-szeregowa do przechowywania pomiarów.
+- Grafana: Wizualizacja danych temperaturowych.
+- Whisper: Model AI do przetwarzania mowy na tekst.
+- YOLO: Model AI do wykrywania obiektów na obrazach.
+
+
+## Rezultaty projektu:
+- System poprawnie mierzy temperaturę, przesyła dane, przechowuje je i wizualizuje w Grafanie.
+- Funkcja zamiany mowy na tekst działa z wysoką dokładnością, umożliwiając ESP8266 wyświetlanie wyników w czasie rzeczywistym.
+- Model YOLO wykrywa obiekty na obrazie, a ich nazwy są poprawnie wyświetlane na LCD.
