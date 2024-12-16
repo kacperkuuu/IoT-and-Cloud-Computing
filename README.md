@@ -3,6 +3,31 @@
 ### Description
 This application utilizes the OpenAI Whisper model to capture 2-second audio segments from the default input device and display the transcribed speech. It is compatible with both CPU and CUDA, with a dedicated function for selecting the appropriate mode to prevent crashes. The application requires Linux for dockerization. Although there are tokens and SSL certificates in the code, they are included solely for testing purposes, so no worries.
 
+
+```mermaid
+graph TD
+    subgraph ESP8266
+        A[ESP8266] -->|Temperature Measurement| B[DS18B20 Sensor]
+        A -->|MQTT Data Transmission| C[MQTT Broker]
+        A -->|Receive MQTT Text| D[LCD Display]
+    end
+
+    subgraph Docker
+        E[InfluxDB] <-->|Store Temperature Data| F[Python Subscriber]
+        F -->|Subscribe to MQTT| C
+        G[Grafana] -->|Visualize Data| E
+    end
+
+    subgraph Speech-to-Text
+        H[Whisper Model] -->|Speech to Text Conversion| C
+    end
+
+    subgraph Video-to-Text
+        I[YOLO Model] -->|Object Detection to Text| C
+    end
+
+    C -->|Send Text| D
+
 ### Linux required for easier installation, making docker can read microphone from windows is quite complicated
 
 ## Installation on linux Debian12
