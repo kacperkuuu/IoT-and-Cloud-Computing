@@ -27,7 +27,49 @@ graph TD
 
     C -->|Send Text| D
 ```
+```mermaid
+graph TD
+    %% ESP8266 Subgraph
+    subgraph ESP8266[ESP8266 System]
+        A1[ESP8266] -->|Read Temperature| A2[DS18B20 Sensor]
+        A1 -->|Process Data| A3[Process Sensor Data]
+        A3 -->|Publish Temperature via MQTT| A4[MQTT Broker]
+        A1 -->|Receive Text Data| A5[Subscribe to MQTT Topic]
+        A5 -->|Display Text| A6[LCD Display]
+    end
 
+    %% Docker Subgraph for InfluxDB
+    subgraph Docker[Data Management System]
+        B1[InfluxDB] <-->|Store Sensor Data| B2[Python Subscriber]
+        B2 -->|Subscribe to MQTT Topic| A4
+        B3[Grafana] -->|Query and Visualize Data| B1
+        B4[NVIDIA Container Toolkit] -->|Enable GPU for Docker| B5[Whisper/YOLO Containers]
+    end
+
+    %% Speech-to-Text Subgraph
+    subgraph SpeechToText[Speech-to-Text System]
+        C1[Audio Input (Microphone)] -->|Capture 2s Audio Chunks| C2[Whisper Model]
+        C2 -->|Convert Speech to Text| C3[Speech Text Data]
+        C3 -->|Publish to MQTT| A4
+    end
+
+    %% Video-to-Text Subgraph
+    subgraph VideoToText[Video-to-Text System]
+        D1[Camera Input] -->|Capture Video Frames| D2[YOLO Model]
+        D2 -->|Detect Objects & Convert to Text| D3[Object Text Data]
+        D3 -->|Publish to MQTT| A4
+    end
+
+    %% MQTT Broker and Connections
+    A4 -->|Forward Text/Temperature Data| A6[LCD Display]
+    A4 -->|Send Data| B2
+    A4 -->|Broadcast Speech Text| A5
+    A4 -->|Broadcast Object Detection Text| A5
+
+    %% Dependencies and External Tools
+    B5 -->|Run Whisper Model| C2
+    B5 -->|Run YOLO Model| D2
+```
 
 ### Linux required for easier installation, making docker can read microphone from windows is quite complicated
 
